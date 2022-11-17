@@ -17,4 +17,18 @@ const getBalance = async (id: number) => {
     return accountExist.balance;
 }
 
-export default getBalance
+const deposit =async (value:number, id: number) => {
+    const oldbalance = await getBalance(id);
+    const newBalance = value + Number(oldbalance);
+    await prisma.accounts.update({
+        where: {
+            id,
+        },
+        data: {
+            balance: newBalance
+        }
+    })
+    return newBalance
+}
+
+export default {getBalance, deposit}

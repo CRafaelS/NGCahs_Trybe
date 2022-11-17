@@ -8,6 +8,8 @@ const routers = Router();
 
 routers.post('/client', isValidUsername, isValidPassword, clientController.newClient);
 routers.get('/client', isValidUsername, isValidPassword, clientController.login);
-routers.get('/account', authMiddleware, accountController);
+
+routers.get('/account', authMiddleware, accountController.getBalance);
+routers.post('/account', authMiddleware, accountController.deposit);
 
 export default routers;
