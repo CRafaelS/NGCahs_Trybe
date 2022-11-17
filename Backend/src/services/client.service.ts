@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import HttpException from '../utils/httpException';
 import { IClient } from '../Interfaces/client.interface';
 import {Md5} from "md5-typescript";
+import { generateJWTToken } from '../utils/jwt';
 
 const prisma = new PrismaClient()
 
@@ -37,4 +38,20 @@ const createClient = async (username: string, password: string):Promise<IClient>
     return createdNewClient;
 }
 
-export default createClient
+const authClient = async (username: string, password: string) => {
+    const encrypted = Md5.init(password);
+
+    const findClient = await prisma.users.findFirst({
+        where: {
+            username, password: encrypted
+        },
+    });
+
+    if (!findClient) {
+        throw new HttpException(404, 'wrong email or password ') 
+    }
+    const token = generateJWTToken(findClient);
+    return token;
+}
+
+export default {createClient, authClient}
