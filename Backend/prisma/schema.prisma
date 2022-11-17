@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
 }
 
 datasource db {
@@ -9,7 +10,7 @@ datasource db {
 
 model Accounts {
   id                           Int            @id @unique @default(autoincrement())
-  balance                      Decimal        @default(100.00) @db.Money
+  balance                      Decimal        @db.Money
   debitedAccount_transactions  Transactions[] @relation("debitedAccount")
   creditedAccount_transactions Transactions[] @relation("creditedAccount")
   users                        Users?
@@ -20,9 +21,9 @@ model Transactions {
   value                     Decimal  @db.Money
   createdAt                 DateTime @default(now())
   debitedAccountId          Int
-  creditedAccountId         Int 
-  Accounts_debitedAccountId Accounts @relation("debitedAccount", fields: [debitedAccountId], references: [id], map: "debitedAccountId_ibfk_1")
-  Accounts_creditedAccount  Accounts @relation("creditedAccount", fields: [creditedAccountId], references: [id], map: "creditedAccountId_ibfk_1")
+  creditedAccountId         Int
+  Accounts_debitedAccountId Accounts @relation("debitedAccount", fields: [debitedAccountId], references: [id], map: "debitedAccountId_ibfk_1", onDelete: Cascade, onUpdate: Cascade)
+  Accounts_creditedAccount  Accounts @relation("creditedAccount", fields: [creditedAccountId], references: [id], map: "creditedAccountId_ibfk_1", onDelete: Cascade, onUpdate: Cascade)
 
   @@index([debitedAccountId], map: "debitedAccountId")
   @@index([creditedAccountId], map: "creditedAccountId")
