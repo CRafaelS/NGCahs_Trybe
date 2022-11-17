@@ -6,3 +6,32 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Accounts {
+  id                           Int            @id @unique @default(autoincrement())
+  balance                      Decimal        @default(100.00) @db.Money
+  debitedAccount_transactions  Transactions[] @relation("debitedAccount")
+  creditedAccount_transactions Transactions[] @relation("creditedAccount")
+  users                        Users?
+}
+
+model Transactions {
+  id                        Int      @id @default(autoincrement())
+  value                     Decimal  @db.Money
+  createdAt                 DateTime @default(now())
+  debitedAccountId          Int
+  creditedAccountId         Int 
+  Accounts_debitedAccountId Accounts @relation("debitedAccount", fields: [debitedAccountId], references: [id], map: "debitedAccountId_ibfk_1")
+  Accounts_creditedAccount  Accounts @relation("creditedAccount", fields: [creditedAccountId], references: [id], map: "creditedAccountId_ibfk_1")
+
+  @@index([debitedAccountId], map: "debitedAccountId")
+  @@index([creditedAccountId], map: "creditedAccountId")
+}
+
+model Users {
+  id         Int      @id @default(autoincrement())
+  username   String   @unique
+  password   String
+  accountsId Int      @unique
+  Accounts   Accounts @relation(fields: [accountsId], references: [id])
+}
