@@ -9,13 +9,13 @@ const prisma = new PrismaClient()
 const createClient = async (username: string, password: string):Promise<IClient> => {
     const encrypted = Md5.init(password);
 
-    const emailExist = await prisma.users.findFirst({
+    const clientExist = await prisma.users.findFirst({
         where: {
             username,
         },
     });
 
-    if (emailExist) {
+    if (clientExist) {
         throw new HttpException(409, 'User already exists')
         
     }
