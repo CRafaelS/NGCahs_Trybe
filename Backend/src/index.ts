@@ -1,7 +1,7 @@
 import express from 'express';
 import 'express-async-errors';
 import middlewareError from './middleware/middleware.error';
-import router from './routes/client.route';
+import router from './routers';
 
 const port = process.env.PORT || 3001;
 
