@@ -58,8 +58,22 @@ const cashOut = async (username:string, value: number ,id: number) => {
         return registerTransaction;
     })
     return myTransaction;
-}
+};
 
+const getTransaction = async (id:number) => {
+    const myTransactions = await prisma.transactions.findMany({
+        where: {
+            OR: [
+                {
+                    creditedAccountId: id,
+                },
+                {
+                    debitedAccountId: id,
+                },
+            ],
+        },
+    });
+    return myTransactions
+};
 
-
-export default cashOut;
+export default { cashOut, getTransaction };

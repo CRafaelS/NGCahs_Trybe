@@ -13,6 +13,7 @@ routers.get('/client', isValidUsername, isValidPassword, clientController.login)
 routers.get('/account', authMiddleware, accountController.getBalance);
 routers.post('/account', authMiddleware, accountController.deposit);
 
-routers.post('/transaction', authMiddleware, transactionController);
+routers.post('/transaction', authMiddleware, transactionController.newTransaction);
+routers.get('/transaction', authMiddleware, transactionController.getTransactions);
 
 export default routers;
