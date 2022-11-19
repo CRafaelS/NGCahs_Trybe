@@ -21,7 +21,7 @@ O desafio consiste em criar uma api para que clientes da NG possam fazer transfe
 
 ## 👨‍💻 Vamos ver o projeto funcionando? 
 
-É possível ver a documentação desta api pelo link `https://documenter.getpostman.com/view/20953705/2s8YmRQ2Ao`, esta documentação foi gerada e publicada através do <strong> Postman </strong>, mas vamos construir nosso banco juntos, lembrando que quando iniciamos o projeto iniciamos com um banco vazio, então vamos passar em todas as rotas e conhecê-las melhor.
+É possível ver a documentação desta api clicando <a href="https://documenter.getpostman.com/view/20953705/2s8YmRQ2Ao"  target="_blank">aqui</a>, esta documentação foi gerada e publicada através do <strong> Postman </strong>, mas vamos construir nosso banco juntos, lembrando que quando iniciamos o projeto iniciamos com um banco vazio, então vamos passar em todas as rotas e conhecê-las melhor.
 
 ## 1. Criar cliente
  Vamos iniciar criando clientes, para isso basta passarmos um username único e uma senha que tenha pelo menos uma letra maiúscula, um número e o seu tamanho deve ser maior que 8 caracteres.
