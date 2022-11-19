@@ -6,6 +6,7 @@ import filterController from '../controllers/filter.controller';
 import { isValidUsername, isValidPassword } from '../middleware/validateUser';
 import { authMiddleware } from '../middleware/middleware.auth';
 import { isValidValue } from '../middleware/middleware.value';
+import { isValidType } from '../middleware/validateType';
 
 const routers = Router();
 
@@ -18,6 +19,6 @@ routers.post('/account', authMiddleware, isValidValue, accountController.deposit
 routers.post('/transaction', authMiddleware, isValidUsername, isValidValue, transactionController);
 
 routers.get('/filter/transactions', authMiddleware, filterController.getTransactions);
-routers.get('/filter/debit-or-credit', authMiddleware, filterController.filterCreditOrDebitTransaction);
+routers.get('/filter/debit-or-credit', authMiddleware, isValidType, filterController.filterCreditOrDebitTransaction);
 
 export default routers;

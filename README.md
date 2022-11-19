@@ -52,8 +52,61 @@ O desafio consiste em criar uma api para que clientes da NG possam fazer transfe
     "password": "Teste1234"
  }
  ```
+ Esta rota tem as mesmas verificações que a de criar cliente.
+
 ## 3. Saldo
  Após fazer login podemos verificar qual é o nosso saldo, lembrando que temos que utilizar o token JWT gerado no login.
  > <strong>GET</strong> `http://localhost:3001/account`
 
+ Esta rota verifica apenas se tem um token JWT válido.
+
 ## 4. Deposito
+ Para deposidar utilizamos a chave value e o retorno desta operação é o novo saldo da conta, só é possível fazer deposido apos o login para utilizarmos o token válido.
+ > <strong>POST</strong> `http://localhost:3001/account`
+
+ ```json
+ {
+    "value": 150
+ }
+ ```
+ Esta rota tem as seguintes verificações:
+ - existe um value
+ - se o value é um numero e maior que zero.
+ - se tem um token válido.
+
+## 5. Transferência
+ Para fazer a transferência precisamos passar apenas o username da pessoa que vai receber esta transferência e o valor na chave value, lembrando que não é possível fazer transferência para a propria conta, então para testar esta operação precisamos de pelo menos 2 clientes cadastrados.
+ > <strong>POST</strong> `http://localhost:3001/transaction`
+
+ ```json
+ {
+    "username": "Carlos",
+    "value": 50
+ }
+ ```
+Esta rota tem as seguintes verificações:
+ - existe um value
+ - se o value é um numero e maior que zero.
+ - se tem um token válido.
+ - existe um username
+ - se username é unico e contém mais que 3 caracteres
+ - se existe este username no banco de dados.
+
+## 6. Verificar todas as transferências.
+ Esta rota é responsável por trazer todas as suas transferências, ou seja, todas as transferências e que fez e recebeu.
+ > <strong>GET</strong> `http://localhost:3001/filter/transactions`
+
+Esta rota verifica apenas se tem um token JWT válido.
+
+## 7. Transferência realizada ou recebida.
+ Esta rota é responsável por fazer um filtro na suas transferências, para fazer este filtro basta passar uma string na chave chave type da operação que deseja consutar, sendo elas debit ou credit.
+ > <strong>GET</strong> `http://localhost:3001/filter/debit-or-credit`
+```json
+{
+    "type": "credit"
+}
+```
+Esta rota tem as seguintes verificações:
+ - existe um type
+ - se o type é uma string e se ela é debit ou credit.
+ - se tem um token válido.

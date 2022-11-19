@@ -9,7 +9,7 @@ export const isValidValue = (req: Request, res: Response, next: NextFunction) =>
   } 
 
   if (typeof value !== 'number') {
-    throw new HttpException(422, '"username" must be a string')
+    throw new HttpException(422, '"username" must be a number')
   }
 
   if (value < 0) {
