@@ -18,7 +18,27 @@ O desafio consiste em criar uma api para que clientes da NG possam fazer transfe
 * `npm start` para iniciar com ts-node ou `npm run dev` para ts-node-dev.
 
 ---
+<details>
+ <summary><strong>🔧 Quais ferramentas foram utilizadas?</strong></summary>
 
+  - Linguagens:
+    > Typescript
+  - Ambiente de execução:
+      > node.js, ts-node.
+  - Frameworks:
+    > Express, Express-async-errors
+  - Banco de dados:
+    > Postgres no Docker
+  - ORM:
+    > PrismaORM
+  - Criptografia:
+    > JsonWebToken, MD5
+  - Variáveis de ambiente:
+    > Dotenv
+        
+</details>
+
+---
 ## 👨‍💻 Vamos ver o projeto funcionando? 
 
 É possível ver a documentação desta api clicando <a href="https://documenter.getpostman.com/view/20953705/2s8YmRQ2Ao"  target="_blank">aqui</a>, esta documentação foi gerada e publicada através do <strong> Postman </strong>, mas vamos construir nosso banco juntos, lembrando que quando iniciamos o projeto iniciamos com um banco vazio, então vamos passar em todas as rotas e conhecê-las melhor.
