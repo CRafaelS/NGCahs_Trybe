@@ -10,7 +10,7 @@ import { isValidValue } from '../middleware/middleware.value';
 const routers = Router();
 
 routers.post('/client', isValidUsername, isValidPassword, clientController.newClient);
-routers.get('/client', isValidUsername, isValidPassword, clientController.login);
+routers.post('/auth', isValidUsername, isValidPassword, clientController.login);
 
 routers.get('/account', authMiddleware, accountController.getBalance);
 routers.post('/account', authMiddleware, isValidValue, accountController.deposit);

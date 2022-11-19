@@ -14,7 +14,7 @@ const getBalance = async (id: number) => {
         throw new HttpException(404, 'Account not found')
         
     }
-    return accountExist.balance;
+    return Number(accountExist.balance);
 }
 
 const deposit =async (value:number, id: number) => {
