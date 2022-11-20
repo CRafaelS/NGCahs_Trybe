@@ -20,5 +20,6 @@ routers.post('/transaction', authMiddleware, isValidUsername, isValidValue, tran
 
 routers.get('/filter/transactions', authMiddleware, filterController.getTransactions);
 routers.get('/filter/debit-or-credit', authMiddleware, isValidType, filterController.filterCreditOrDebitTransaction);
+// routers.get('/filter/date', authMiddleware, filterController.filterByDateTransaction);
 
 export default routers;

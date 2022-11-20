@@ -14,4 +14,11 @@ const filterCreditOrDebitTransaction = async (req: Request, res: Response) => {
     return res.status(200).json(transaction);
 }
 
+// const filterByDateTransaction = async (req: Request, res: Response) => {
+//     const { id } = res.locals;
+//     const { date } = req.body;
+//     const transaction = await filterService.filterByDate(id,date)
+//     return res.status(200).json(transaction);
+// }
+
 export default { getTransactions, filterCreditOrDebitTransaction };

@@ -43,4 +43,20 @@ const filterCreditOrDebitTransaction = async (id:number, type: string) => {
     }
 };
 
+// const filterByDate = async (id:number, date: string) => {
+//     const filteredDate = await prisma.transactions.findMany({
+//         where: {
+//             AND: [
+//                 {
+//                     createdAt: {equals: new Date(date) }
+//                 },
+//                 {
+//                     id,
+//                 }
+//             ],
+//         },
+//     })
+//     return filteredDate
+// };
+
 export default { getTransactions, filterCreditOrDebitTransaction };
