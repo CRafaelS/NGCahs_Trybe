@@ -80,8 +80,8 @@ O desafio consiste em criar uma api para que clientes da NG possam fazer transfe
 
  Esta rota verifica apenas se tem um token JWT válido.
 
-## 4. Deposito
- Para deposidar utilizamos a chave value e o retorno desta operação é o novo saldo da conta, só é possível fazer deposido apos o login para utilizarmos o token válido.
+## 4. Depósito
+ Para deposidar utilizamos a chave value e o retorno desta operação é o novo saldo da conta, só é possível fazer depósito apos o login para utilizarmos o token válido.
  > <strong>POST</strong> `http://localhost:3001/account`
 
  ```json
