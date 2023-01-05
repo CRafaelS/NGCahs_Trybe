@@ -1,7 +1,7 @@
-# Olá, <img src="https://raw.githubusercontent.com/kaueMarques/kaueMarques/master/hi.gif" width="30px" height="30px"> Bem vindo ao repositório do desafio técnioco da <a href="https://ng.cash/"  target="_blank">NGCash!</a>
+# Olá, <img src="https://raw.githubusercontent.com/kaueMarques/kaueMarques/master/hi.gif" width="30px" height="30px"> Bem vindo ao repositório do TransferAPI
 
 ## 🤔 O que esse projeto faz?
-O desafio consiste em criar uma api para que clientes da NG possam fazer transferências internas entre si, neste projeto é possível criar um novo cliente, fazer login e receber um token JWT, consultar o saldo na conta logado, ou seja, que apresente um token válido, fazer o depósito nesta conta, realizar transferências entre clientes passando o username e por fim filtrar as transações. 
+Esse projeto possibilita clientes fazer transferências internas entre si, neste projeto é possível criar um novo cliente, fazer login e receber um token JWT, consultar o saldo na conta logado, ou seja, que apresente um token válido, fazer o depósito nesta conta, realizar transferências entre clientes passando o username e por fim filtrar as transações. 
 
 ---
 
@@ -58,7 +58,7 @@ O desafio consiste em criar uma api para que clientes da NG possam fazer transfe
  - username é unico e contém mais que 3 caracteres
  - password tem mais que 8 caracteres e se tem pelo menos um número e uma letra maiúscula
 
- Uma notícia boa é que todos os clientes NG desta API, iniciam com R$100,00 na conta e para não ocorrer nenhum problema no caminho a conta só é criada se tudo ocorrer bem 😄
+ Uma notícia boa é que todos os clientes desta API, iniciam com R$100,00 na conta e para não ocorrer nenhum problema no caminho, a conta só é criada se tudo ocorrer bem 😄
 
  Aconselho criar mais que um cliente, pois vamos precisar para rotas futuras.
 
